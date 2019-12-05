@@ -18,9 +18,12 @@ TAU = 1e-3              # for soft update of target parameters
 LR_ACTOR = 0.001         # learning rate of the actor
 LR_CRITIC = 0.001        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
-UPDATE_EVERY = 4        # learning timestep interval
-UPDATE_NUM = 1          # number of learning passes
-RANDOM_SEED = 0
+UPDATE_EVERY = 1        # learning timestep interval
+UPDATE_NUM = 2          # number of learning passes
+RANDOM_SEED = 0         # Random Seed
+NOISE_START = 1.0       # Noise value at start of training
+T_NOISE_STOP = 1000     # t step where noise stops
+NOISE_DECAY = 0.9999    # Noise decay every t step
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -28,7 +31,7 @@ print(device)
 
 class MADDPG:
     
-    def __init__(self, action_size=2, state_size=24, seed=RANDOM_SEED, num_agents=2, buffer_size=BUFFER_SIZE, batch_size=BATCH_SIZE, gamma=GAMMA, update_every=UPDATE_EVERY, update_num=UPDATE_NUM, noise_start=1.0, noise_decay=0.99, t_noise_stop=30000):
+    def __init__(self, action_size=2, state_size=24, seed=RANDOM_SEED, num_agents=2, buffer_size=BUFFER_SIZE, batch_size=BATCH_SIZE, gamma=GAMMA, update_every=UPDATE_EVERY, update_num=UPDATE_NUM, noise_start=NOISE_START, noise_decay=NOISE_DECAY, t_noise_stop=T_NOISE_STOP):
         
         self.action_size = action_size
         self.state_size = state_size
