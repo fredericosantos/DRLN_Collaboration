@@ -1,6 +1,6 @@
 [//]: # (Image References)
 
-[image1]: https://raw.githubusercontent.com/fredericosantos/DRLN_ContinuousControl/master/Graph.png "Scores"
+[image1]: https://raw.githubusercontent.com/fredericosantos/DRLN_Collaboration/master/Graph_p3.png "Scores"
 
 # Report on Project 1: Navigation
 
